@@ -1,0 +1,46 @@
+# day3_mini_calculator.py
+# Simple CLI calculator: +, -, *, / with error handling
+
+def calc(a, op, b):
+    if op == '+': return a + b
+    if op == '-': return a - b
+    if op == '*': return a * b
+    if op == '/':
+        if b == 0:
+            raise ZeroDivisionError("Cannot divide by zero")
+        return a / b
+    raise ValueError("Unsupported operator")
+
+def main():
+    print("=== Mini Calculator (Day 3) ===")
+    print("Usage: number operator number   e.g., 12 * 3")
+    print("Operators: +  -  *  /")
+    while True:
+        try:
+            expr = input("\nEnter expression (or 'q' to quit): ").strip()
+            if expr.lower() == 'q':
+                print("Bye! Commit this file to keep your streak 🔥")
+                break
+
+            parts = expr.split()
+            if len(parts) != 3:
+                print("Format error. Example: 8 / 2")
+                continue
+
+            a_str, op, b_str = parts
+            a = float(a_str)
+            b = float(b_str)
+
+            result = calc(a, op, b)
+            # show as int if whole number
+            if result.is_integer():
+                result = int(result)
+            print("Result:", result)
+
+        except ZeroDivisionError as e:
+            print("Error:", e)
+        except ValueError:
+            print("Error: please enter valid numbers and operator (+ - * /).")
+
+if __name__ == "__main__":
+    main()
