@@ -1,0 +1,14 @@
+def classify_weather(temperature, humidity, wind):
+    def classify_weather(t, h, w):
+        if t == "high" and h == "low" and w == "low": return "Sunny"
+        if h == "high" and w == "low": return "Rainy"
+        if h == "medium" and t == "moderate": return "Cloudy"
+        if w == "high" and h == "low": return "Windy"
+        if h == "high" and w == "high": return "Stormy"
+        return "Uncertain"
+
+    t = input("Temperature: ").lower()
+    h = input("Humidity: ").lower()
+    w = input("Wind: ").lower()
+
+    print("Weather:", classify_weather(t, h, w))
