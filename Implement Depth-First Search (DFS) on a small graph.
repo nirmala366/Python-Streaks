@@ -1,0 +1,25 @@
+# Define the graph using adjacency list
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+
+# DFS function
+def dfs(graph, start, visited=None):
+    if visited is None:
+        visited = set()
+    # Mark the node as visited
+    visited.add(start)
+    print(start, end=' ')
+    # Recurse for all adjacent unvisited nodes
+    for neighbor in graph[start]:
+        if neighbor not in visited:
+            dfs(graph, neighbor, visited)
+
+# Run DFS
+print("Depth-First Search starting from node 'A':")
+dfs(graph, 'A')
