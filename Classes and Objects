@@ -14,3 +14,9 @@ car2 = Car("Tesla", "Model 3")
 # Using methods
 car1.drive()
 car2.drive()
+
+
+✅ Output:
+Toyota Corolla is driving 🚗
+Tesla Model 3 is driving 🚗
+
