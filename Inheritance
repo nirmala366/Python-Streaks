@@ -1,0 +1,29 @@
+# Parent class
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        print(f"{self.name} makes a sound")
+
+# Child class (inherits from Animal)
+class Dog(Animal):
+    def speak(self):   # method overriding
+        print(f"{self.name} says Woof! 🐶")
+
+# Another Child class
+class Cat(Animal):
+    def speak(self):
+        print(f"{self.name} says Meow! 🐱")
+
+# ---------------- Main ----------------
+dog = Dog("Buddy")
+cat = Cat("Whiskers")
+
+dog.speak()   # Calls Dog’s version
+cat.speak()   # Calls Cat’s version
+
+
+✅ Output:
+Buddy says Woof! 🐶
+Whiskers says Meow! 🐱
